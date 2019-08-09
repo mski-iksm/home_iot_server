@@ -36,7 +36,7 @@ def incoming():
     posted_data = flask.request.get_json()
     if posted_data['key'] == server_settings['key']:
         response['message'] = 'using valid key'
-        response['text'] = posted_data['text']
+        response['text'] = posted_data['text'].replace(" ", "")
         logging.info(f'text: {posted_data["text"]}')
         signal, device, order = iot.make_signal(posted_data['text'])
         logging.info(f'device: {device}')
