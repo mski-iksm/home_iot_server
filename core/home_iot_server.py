@@ -22,7 +22,7 @@ def make_signal(message):
     signal, device, order = process_message(message)
     send_ir(signal)
 
-    return signal
+    return signal, device, order
 
 
 def process_message(message):

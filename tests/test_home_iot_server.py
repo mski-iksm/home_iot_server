@@ -100,7 +100,7 @@ class TestMakeSignal:
     @pytest.mark.skip(reason='pytestskip')
     def test_turn_on_light_make_signal(self, message):
         assert make_signal(
-            message) == settings['room_light']['orders']['turn_on']['signal']
+            message)[0] == settings['room_light']['orders']['turn_on']['signal']
 
     # 電気を消すテスト==> スキップ
     @pytest.mark.parametrize(
@@ -111,7 +111,7 @@ class TestMakeSignal:
     @pytest.mark.skip(reason='pytestskip')
     def test_turn_off_light_make_signal(self, message):
         assert make_signal(
-            message) == settings['room_light']['orders']['turn_off']['signal']
+            message)[0] == settings['room_light']['orders']['turn_off']['signal']
 
     # 変な入力のテスト
     @pytest.mark.parametrize(
@@ -124,4 +124,4 @@ class TestMakeSignal:
     # @pytest.mark.skip(reason='pytestskip')
     def test_false_make_signal(self, message):
         assert make_signal(
-            message) == [-1]
+            message)[0] == [-1]
