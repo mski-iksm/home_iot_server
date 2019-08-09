@@ -92,3 +92,5 @@ ENV/
 
 # secret files
 yamls/secret_settings.yml
+yamls/secret_irkit_setting.yml
+yamls/secret_server_setting.yml
