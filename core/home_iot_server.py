@@ -84,7 +84,7 @@ def detect_order(message, device):
     if device != 'NA':
         for k, v in settings[device]['orders'].items():
             for pat in v['pattern']:
-                if pat in message:
+                if str(pat) in message:
                     signal = v['signal']
                     order = k
                     break

@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3.6
 import yaml
 import core.home_iot_server as iot
 import flask
@@ -37,8 +38,8 @@ def incoming():
     if posted_data['key'] == server_settings['key']:
         response['message'] = 'using valid key'
         response['text'] = posted_data['text'].replace(" ", "")
-        logging.info(f'text: {posted_data["text"]}')
-        signal, device, order = iot.make_signal(posted_data['text'])
+        logging.info(f'text: {response["text"]}')
+        signal, device, order = iot.make_signal(response["text"])
         logging.info(f'device: {device}')
         logging.info(f'order: {order}')
 
