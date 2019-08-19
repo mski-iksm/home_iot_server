@@ -2,6 +2,6 @@ language: python
 python:
     - 3.6.3
 install:
-    - pip install requests yaml
+    - pip install requests pyyaml
 script:
     - python3 -m pytest
