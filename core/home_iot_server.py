@@ -95,7 +95,7 @@ def detect_order(message, device):
 
 
 def send_ir(signal):
-    url = f"http://{format(irkit_settings['url'])}/messages"
+    url = f'http://{format(irkit_settings['url'])}/messages'
     message = {'format': 'raw', 'freq': 38,
                'data': signal}
     message = json.dumps(message)
