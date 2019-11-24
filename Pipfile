@@ -6,8 +6,13 @@ verify_ssl = true
 [dev-packages]
 yapf = "*"
 flake8-html = "*"
+flake8-quotes = "*"
+pytest = "*"
 
 [packages]
+flask = "*"
+requests = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.6"
