@@ -57,6 +57,7 @@ class RemoteController(PostDataManager):
             list: signal sent to IRKIT. [-1] when invalid.
         """
         signal, device, order = self._process_message(message)
+        logging.info(f'{device} {order}')
         self._send_ir(signal)
 
         return signal, device, order
