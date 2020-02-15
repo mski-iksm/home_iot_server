@@ -88,7 +88,7 @@ class RemoteController(PostDataManager):
 
     def _build_pattern2device_map(self) -> Dict[str, str]:
         logging.info('start get_signal_settings')
-        signal_settings = get_signal_settings()
+        signal_settings = get_signal_settings()  # very slow
         logging.info('start matching')
         pattern2device_map = {}
         for device_name, v in signal_settings.items():
@@ -100,7 +100,10 @@ class RemoteController(PostDataManager):
         """
         if device == 'NA':
             return [-1], 'NA'
+
+        logging.info('start build signal map')
         pattern2signal_map, pattern2order_map = self._build_pattern2signal_map(device)
+        logging.info('end build signal map')
         for pattern, signal in pattern2signal_map.items():
             if pattern in message:
                 return signal, pattern2order_map[pattern]
