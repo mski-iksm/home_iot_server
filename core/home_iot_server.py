@@ -39,6 +39,7 @@ class RemoteController(PostDataManager):
         self._posted_data = posted_data
 
     def run(self):
+        logging.info('start run')
         server_settings = get_server_settings()
         response = {}
         if self._posted_data['key'] != server_settings['key']:
@@ -65,7 +66,9 @@ class RemoteController(PostDataManager):
     def _process_message(self, message: str) -> Tuple[List[int], str, str]:
         """compose and return signal from message
         """
+        logging.info('start detect device')
         device = self._detect_device(message)
+        logging.info('start detect order')
         signal, order = self._detect_order(message, device)
         return signal, device, order
 
