@@ -1,6 +1,7 @@
 import pytest
 import run_server
 import json
+import unittest
 
 from core.prepare_settings import get_server_settings
 
