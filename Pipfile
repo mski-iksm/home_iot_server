@@ -13,6 +13,7 @@ pytest = "*"
 flask = "*"
 requests = "*"
 pyyaml = "*"
+pyopenssl = "*"
 
 [requires]
 python_version = "3.6"
