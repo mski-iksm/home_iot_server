@@ -78,14 +78,18 @@ class RemoteController(PostDataManager):
             str: device name, 'NA' when invalid
         """
 
+        logging.info('start building pattern')
         pattern2device_map = self._build_pattern2device_map()
+        logging.info('start matching')
         for pattern, device_name in pattern2device_map.items():
             if pattern in message:
                 return device_name
         return 'NA'
 
     def _build_pattern2device_map(self) -> Dict[str, str]:
+        logging.info('start get_signal_settings')
         signal_settings = get_signal_settings()
+        logging.info('start matching')
         pattern2device_map = {}
         for device_name, v in signal_settings.items():
             pattern2device_map.update({pat: device_name for pat in v['device_pattern']})
